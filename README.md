@@ -4,11 +4,21 @@
 
 middle Maybe it’s a fun little thing. 🦊或许这会是一个好玩的东西 :3
 
-> This is just a `Demo`. 这只是一个`Demo`
+> This is just a `Demo`. 这只是一个`Demo`并未有实际意义
 
+## 用途
+可用作考试,具体考试打分可参考
 
 ## Projects
 
-- Jquery
-- Bootstrap
-- 
+基于以下开源项目构建
+
+- [Jquery.js](https://github.com/jquery/jquery)
+- [Bootstrap.css](https://github.com/twbs/bootstrap)
+- [page.js](https://github.com/visionmedia/page.js)
+- [javascript-templates](https://github.com/blueimp/JavaScript-Templates)
+- [lodash.js](https://www.bootcdn.cn/lodash.js)
+
+项目中使用了`cdnjs`, `api` 来自 `github`
+
+Design by [@yinwang](http://www.yinwang.org/)
