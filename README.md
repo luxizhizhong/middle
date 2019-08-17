@@ -7,7 +7,7 @@ middle Maybe it’s a fun little thing. 🦊或许这会是一个好玩的东西
 > This is just a `Demo`. 这只是一个`Demo`并未有实际意义
 
 ## 用途
-可用作考试,具体考试打分可参考
+可用作考试,具体考试打分可参考 [TEST.md](./TEST.md)
 
 ## Projects
 

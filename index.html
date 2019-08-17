@@ -24,60 +24,44 @@
           <a class="nav-link" href="#">首页 <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">关于我</a>
+          <a class="nav-link" href="#/about">关于我</a>
         </li>
       </ul>
     </div>
   </nav>
 
-  <div class="outer">
-    <ul class="list-group">
-
-      <li class="list-group-item title">
-        <div class="date">2019年07月31日</div><br>
-        <a href="/blog-cn/2019/07/31/human-quality">关于人的素质</a>
-      </li>
-
-      <li class="list-group-item title">
-        <div class="date">2019年07月21日</div><br>
-        <a href="/blog-cn/2019/07/21/pnp2">再谈“P vs NP”问题</a>
-      </li>
-
-      <li class="list-group-item title">
-        <div class="date">2019年07月12日</div><br>
-        <a href="/blog-cn/2019/07/12/learning-philosophy">学习的智慧</a>
-      </li>
-
-      <li class="list-group-item title">
-        <div class="date">2018年11月23日</div><br>
-        <a href="/blog-cn/2018/11/23/grammar">解谜英语语法</a>
-      </li>
-
-      <li class="list-group-item title">
-        <div class="date">2018年04月13日</div><br>
-        <a href="/blog-cn/2018/04/13/computer-science">解谜计算机科学</a>
-      </li>
-
-      <li class="list-group-item title">
-        <div class="date">2018年03月08日</div><br>
-        <a href="/blog-cn/2018/03/08/ciia1">从苹果产品的设计错误学教训</a>
-      </li>
-
-      <li class="list-group-item title">
-        <div class="date">2018年02月22日</div><br>
-        <a href="/blog-cn/2018/02/22/smart-contract">智能合约和形式验证</a>
-      </li>
-
-      <li class="list-group-item title text-center">
-        <button class="btn btn-success">加载更多</button>
-      </li>
-
-    </ul>
-  </div>
+  <div class="outer" id="list"></div>
 
 </body>
+<script type="text/x-tmpl" id="tmpl-list">
+  {% for (var i=0; i<o.list.length; i++) { %}
+    <li class="list-group-item title">
+      <div class="date">{%= o.list[i].created_at %}</div><br>
+      <a href="#/view/{%= o.list[i].number%}">{%= o.list[i].title %}</a>
+    </li>
+  {% } %}
+  {% if (o.flag) { %}
+    <li class="list-group-item title text-center">
+      <button id="next" onclick="nextPage(this)" data-page="{%= o.page %}" class="btn btn-success">加载更多</button>
+    </li>
+  {% } %}
+</script>
+<script type="text/x-tmpl" id="tmpl-body">
+  <div class="markdown-body">
+    <h1>{%= o.title %}</h1>
+    {%# o.html %}
+  </div>
+</script>
+<script type="text/x-tmpl" id="tmpl-about">
+  <div class="markdown-body">
+    {%# o.html %}
+  </div>
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Director/1.2.8/director.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-JavaScript-Templates/3.12.0/js/tmpl.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.7.0/marked.min.js"></script>
+<script src="./config.js"></script>
 <script src="./js/main.js"></script>
 </html>
