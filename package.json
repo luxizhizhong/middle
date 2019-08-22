@@ -22,7 +22,9 @@
     "@zeit-ui/style": "^0.9.3",
     "@zeit/next-css": "^1.0.1",
     "cowsay-browser": "^1.1.8",
+    "dayjs": "^1.8.15",
     "next": "^9.0.4",
+    "node-fetch": "^2.6.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   }

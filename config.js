@@ -1,15 +1,10 @@
 /*
 ** the this configure file
+** create by @d1y
+** date: 2019-08-22
 */
 
-window.config = {
-  /*
-  ** 请自定义修改即可
-  */
-  github: `mqyqingfeng`,
-  repo: `blog`,
-  about: `
-    # Why?
-    create by 2019-08-16
-  `
+export default { 
+  github : `mqyqingfeng`,
+  repo   : `blog`
 }
