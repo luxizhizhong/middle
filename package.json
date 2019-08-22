@@ -1,0 +1,29 @@
+{
+  "name": "middle",
+  "version": "0.0.1",
+  "description": "a next.js render blog",
+  "main": "main.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxizhizohng/middle.git"
+  },
+  "author": "d1y <chenhonzhou@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luxizhizohng/middle/issues"
+  },
+  "homepage": "https://github.com/luxizhizohng/middle#readme",
+  "dependencies": {
+    "@zeit-ui/style": "^0.9.3",
+    "@zeit/next-css": "^1.0.1",
+    "cowsay-browser": "^1.1.8",
+    "next": "^9.0.4",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
