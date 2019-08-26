@@ -4,7 +4,9 @@ const github = `luxizhizhong`
 const Nav = () => (
   <div>
     <h2>
-      <Link href="#">代砝日记</Link>
+      <Link href="/">
+        <a>代码日志</a>
+      </Link>
       <a className="links" href="/join">
         <code>
           /Join

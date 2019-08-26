@@ -1,4 +1,3 @@
-import '@zeit-ui/style'
 import React from 'react'
 import cowsay from 'cowsay-browser'
 import Link from 'next/link'

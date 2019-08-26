@@ -1,79 +1,74 @@
-import '@zeit-ui/style'
 import Link from 'next/link'
 import Head from 'next/head'
-import fetch from 'node-fetch'
-import qs from 'querystring'
 import Nav from '../components/nav'
 import Foot from '../components/foot'
-import conf from '../config'
 
-const { dayFormat }  = require('../utils')
+const utils = require('../utils')
+
+const { dayFormat, fetchAPI } = utils
 
 const listMargin = {
   marginBottom: `4px`,
   marginTop: `4px`
 }
 
-const fetchAPI = ( page=1, count=10) => {
-  let { github, repo } = conf
-  let api = `https://api.github.com/repos/${github}/${repo}/issues?`
-  let query = qs.encode({
-    filter: 'created',
-    page,
-    per_page: count
-  })
-  return `${api}${query}`
-}
-
-const App = ({ lists }) => (
+const App = ({ lists, flag }) => (
   <div className="zi-main zi-layout">
+    <style jsx>{`
+      .more {
+        border: none;
+        padding-bottom: 1px;
+        cursor: pointer;
+      }
+      .more:hover {
+        background-color: #eee;
+        text-decoration: none;
+      }
+    `}</style>
     <Head>
       <title> /index </title>
       <link rel="icon" href="https://github.com/favicon.ico" />
     </Head>
     <Nav></Nav>
     <ul style={{ marginTop: '2rem' }}>
-      { lists.map(item=> {
+      {lists.map(item => {
         return (
-          <li key={ item.id }>
-            <h3 style={ listMargin }>
-              <Link href={ "/post/"+ item.id }>
-                <a>{ item.title }</a>
+          <li key={item.number}>
+            <h3 style={listMargin}>
+              <Link href={"/post/" + item.number}>
+                <a>{item.title}</a>
               </Link>
             </h3>
-            <p style={ listMargin } className="zi-subheading">
-              { dayFormat() }
+            <p style={listMargin} className="zi-subheading">
+              {dayFormat()}
             </p>
           </li>
         )
-      }) }
-      {/* {lists.forEach(list=> {
-        
-      })} */}
+      })}
     </ul>
-    <div class="zi-more">
-      <button class="zi-btn circular small auto">
-        加载更多
-        <i class="suffix zi-icon-up"></i>
+    {flag ? (
+      <button className="more" onClick={() => ajaxMore(lists, flag)}>
+        <code>加载更多</code>
       </button>
-    </div>
+    ) : (
+        <p>
+          <code>没有更多了</code>
+        </p>
+      )}
     <Foot></Foot>
   </div>
 )
 
-App.getInitialProps = async({}) => {
-  const { res } = await new Promise((rcv, rjt)=> {
-    fetch(fetchAPI())
-    .then(r=> r.json())
-    .then(data=> {
-      rcv({ res: data })
-    })
-    .catch(e=> {
-      rjt(e)
-    })
-  })
-  // console.log('to touch: ', fetchAPI())
-  return { lists: res }
+App.getInitialProps = async () => {
+  const { res, flag } = await fetchAPI()
+  return { lists: res, flag }
+}
+
+async function ajaxMore(...wrap) {
+  wrap[1] = false
+  console.log(wrap)
+  // const { res } = await fetchAPI({page: ++page, count})
+  // lists = lists.concat(res)
 }
 
 export default App
