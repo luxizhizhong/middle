@@ -38,9 +38,6 @@ You Can Use [now.sh](https://now.sh)
 
 Demo: https://luxi.now.sh
 
-<iframe src="https://githubbadge.appspot.com/d1y" style="border: 0;height: 111px;width: 200px;overflow: hidden;" frameBorder="0"></iframe>
-
-
 ```console
 
  _______________________
